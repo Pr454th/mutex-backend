@@ -35,6 +35,10 @@ const userSchema = mongoose.Schema(
       type: [mongoose.Schema.Types.ObjectId],
       ref: "Event",
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
