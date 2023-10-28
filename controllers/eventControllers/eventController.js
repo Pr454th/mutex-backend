@@ -12,6 +12,7 @@ const createEvent = async (req, res) => {
   if (!user.isAdmin) {
     return res.status(401).json({ error: "Not authorized" });
   }
+  console.log(req.body);
   const {
     eventName,
     eventStartDate,
@@ -159,6 +160,7 @@ const validateEvent = (data) => {
     eventName: Joi.string().required().label("Event name"),
     eventStartDate: Joi.date().required().label("Event startDate"),
     eventEndDate: Joi.date().label("Event end Date"),
+    eventType: Joi.string().required().label("Event type"),
     venue: Joi.string().required().label("Venue"),
     dept: Joi.string().empty("").label("Dept"),
     firstPrizeMoney: Joi.number().label("First prize money"),

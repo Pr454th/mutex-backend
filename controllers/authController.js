@@ -130,7 +130,7 @@ const validateSignup = (data) => {
   const schema = Joi.object({
     userName: Joi.string().required().label("Name"),
     regNo: Joi.string().empty("").label("Register Number"),
-    mobile: Joi.string().required().label("Mobile "),
+    mobile: Joi.string().required().label("Mobile ").min(10).max(10),
     dept: Joi.string().empty("").label("Department"),
     email: Joi.string().email().required().label("Email"),
     password: passwordComplexity().required().label("Password"),
