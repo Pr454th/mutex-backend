@@ -129,8 +129,8 @@ const login = async (req, res) => {
 const validateSignup = (data) => {
   const schema = Joi.object({
     userName: Joi.string().required().label("Name"),
-    regNo: Joi.string().empty("").label("Register Number"),
-    mobile: Joi.string().required().label("Mobile ").min(10).max(10),
+    regNo: Joi.string().required().length(10).label("Register Number"),
+    mobile: Joi.string().required().length(10).label("Mobile "),
     dept: Joi.string().empty("").label("Department"),
     email: Joi.string().email().required().label("Email"),
     password: passwordComplexity().required().label("Password"),
