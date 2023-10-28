@@ -3,8 +3,8 @@ const User = require("../../models/userModel");
 
 const addOrganizer = async (req, res) => {
   const { id } = req.params;
-  const { organizerEmail } = req.body;
-  const user = await User.findOne({ email: organizerEmail });
+  const { organizerRegNo } = req.body;
+  const user = await User.findOne({ regNo: organizerRegNo });
   if (!user) {
     return res
       .status(400)
