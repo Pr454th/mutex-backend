@@ -13,6 +13,18 @@ const eventSchema = mongoose.Schema(
     eventEndDate: {
       type: Date,
     },
+    eventType: {
+      type: String,
+      required: true,
+      enum: ["Technical", "Non-technical"],
+      default: "Technical",
+    },
+    firstPrizeMoney: {
+      type: Number,
+    },
+    secondPrizeMoney: {
+      type: Number,
+    },
     venue: {
       type: String,
       required: true,
