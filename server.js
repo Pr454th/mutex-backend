@@ -33,7 +33,7 @@ app.use("/api/logs", analyticsRoutes);
 mongoose.connect(process.env.MONGO_URI).then(() => {
   app.listen(process.env.PORT, () => {
     console.log(
-      `Connected to MongoDB\nServer running on port ${process.env.PORT}`
+      `Connected to MongoDB\nServer listening on port ${process.env.PORT}`
     );
   });
 });
