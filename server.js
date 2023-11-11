@@ -11,12 +11,12 @@ const analyticsRoutes = require("./routes/analyticsRoutes");
 
 const app = express();
 
-const corsOptions = {
-  origin: ["http://localhost:5173"],
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: ["http://localhost:5173"],
+//   optionsSuccessStatus: 200,
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -33,7 +33,7 @@ app.use("/api/logs", analyticsRoutes);
 mongoose.connect(process.env.MONGO_URI).then(() => {
   app.listen(process.env.PORT, () => {
     console.log(
-      `Connected to MongoDB\nServer running on port ${process.env.PORT}`
+      `Connected to MongoDB\nServer listening on port ${process.env.PORT}`
     );
   });
 });
