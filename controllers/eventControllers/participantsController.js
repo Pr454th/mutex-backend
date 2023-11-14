@@ -1,5 +1,6 @@
 const Event = require("../../models/eventModel");
 const User = require("../../models/userModel");
+const Registrations = require("../../models/registrationsModel");
 const mongoose = require("mongoose");
 
 const getParticipants = async (req, res) => {
@@ -29,6 +30,8 @@ const addParticipant = async (req, res) => {
   await User.findByIdAndUpdate(req.user.id, {
     $push: { participatedEvents: id },
   });
+  // add this event to the registrations collection
+  await Registrations.create({ userId: req.user.id, eventId: id });
   res.status(200).json(event);
 };
 
