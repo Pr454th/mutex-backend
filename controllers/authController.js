@@ -133,8 +133,11 @@ const validateSignup = (data) => {
     mobile: Joi.string().required().length(10).label("Mobile "),
     dept: Joi.string().empty("").label("Department"),
     email: Joi.string().email().required().label("Email"),
-    password: passwordComplexity().required().label("Password"),
-    confirmPassword: passwordComplexity().required().label("Confirm Password"),
+    password: Joi.string().length(8).required().label("Password"),
+    confirmPassword: Joi.string()
+      .length(8)
+      .required()
+      .label("Confirm Password"),
   });
   return schema.validate(data);
 };
