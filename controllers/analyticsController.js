@@ -14,4 +14,9 @@ const logRequest = async (req, res) => {
   res.end();
 };
 
-module.exports = { logRequest };
+const getPageViews = async (req, res) => {
+  const pageViews = await WebLog.countDocuments();
+  res.json({ pageViews });
+};
+
+module.exports = { logRequest, getPageViews };
